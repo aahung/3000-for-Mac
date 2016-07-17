@@ -1,0 +1,17 @@
+PODS:
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - Sparkle (1.14.0)
+
+DEPENDENCIES:
+  - FMDB
+  - Sparkle
+
+SPEC CHECKSUMS:
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  Sparkle: ccd95233b12a3e3d4eeb55ff01dd4c8bb8188b07
+
+PODFILE CHECKSUM: 677772574ceb3ac90843dac25988df8016c8cd9b
+
+COCOAPODS: 1.0.1

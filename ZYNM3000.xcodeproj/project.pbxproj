@@ -3,15 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95324348F39ACF732EF44AA8 /* Pods_ZYNM3000Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6F58107A8CADB031010603 /* Pods_ZYNM3000Tests.framework */; };
 		B21F1E381D3BCF9600B7A5C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F1E371D3BCF9600B7A5C8 /* AppDelegate.swift */; };
 		B21F1E3A1D3BCF9600B7A5C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F1E391D3BCF9600B7A5C8 /* ViewController.swift */; };
 		B21F1E3C1D3BCF9600B7A5C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B21F1E3B1D3BCF9600B7A5C8 /* Assets.xcassets */; };
 		B21F1E3F1D3BCF9600B7A5C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B21F1E3D1D3BCF9600B7A5C8 /* Main.storyboard */; };
 		B21F1E4A1D3BCF9600B7A5C8 /* ZYNM3000Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F1E491D3BCF9600B7A5C8 /* ZYNM3000Tests.swift */; };
+		B21F1E551D3BD06E00B7A5C8 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = B21F1E541D3BD06E00B7A5C8 /* Resources */; };
+		B21F1E561D3BD06E00B7A5C8 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = B21F1E541D3BD06E00B7A5C8 /* Resources */; };
+		B21F1E5B1D3BD11400B7A5C8 /* Words3000.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F1E5A1D3BD11400B7A5C8 /* Words3000.swift */; };
+		B21F1E5C1D3BD11400B7A5C8 /* Words3000.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F1E5A1D3BD11400B7A5C8 /* Words3000.swift */; };
+		B21F1E5F1D3BD70B00B7A5C8 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F1E5E1D3BD70B00B7A5C8 /* Word.swift */; };
+		B21F1E601D3BD70B00B7A5C8 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F1E5E1D3BD70B00B7A5C8 /* Word.swift */; };
+		B21F1E621D3BD82100B7A5C8 /* TestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F1E611D3BD82100B7A5C8 /* TestMethod.swift */; };
+		B21F1E631D3BD82100B7A5C8 /* TestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21F1E611D3BD82100B7A5C8 /* TestMethod.swift */; };
+		B27F192D1D3BE3C90034DBFD /* HierarchyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F192C1D3BE3C90034DBFD /* HierarchyViewController.swift */; };
+		B27F19301D3BF6C50034DBFD /* OutlineButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F192F1D3BF6C50034DBFD /* OutlineButtonView.swift */; };
+		B27F19331D3C00FE0034DBFD /* NoExtraGridOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F19321D3C00FE0034DBFD /* NoExtraGridOutlineView.swift */; };
+		B27F19351D3C10290034DBFD /* WordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F19341D3C10290034DBFD /* WordDetailViewController.swift */; };
+		B27F19371D3C2DF30034DBFD /* ListenKeyWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F19361D3C2DF30034DBFD /* ListenKeyWindowController.swift */; };
+		B27F19391D3C38840034DBFD /* SpeakerImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F19381D3C38840034DBFD /* SpeakerImageButton.swift */; };
+		D9886AE6386884528C22334C /* Pods_ZYNM3000.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C79D18B34844E8D57550926 /* Pods_ZYNM3000.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,7 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B21F1E341D3BCF9600B7A5C8 /* ZYNM3000.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZYNM3000.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C1FCBEF1375CBD00C2E88E4 /* Pods-ZYNM3000Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYNM3000Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZYNM3000Tests/Pods-ZYNM3000Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		8B217A105EB87FFE7120B08F /* Pods-ZYNM3000Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYNM3000Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZYNM3000Tests/Pods-ZYNM3000Tests.release.xcconfig"; sourceTree = "<group>"; };
+		8C79D18B34844E8D57550926 /* Pods_ZYNM3000.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZYNM3000.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6988790DF3EC4EE0F8CED41 /* Pods-ZYNM3000.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYNM3000.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZYNM3000/Pods-ZYNM3000.release.xcconfig"; sourceTree = "<group>"; };
+		B21F1E341D3BCF9600B7A5C8 /* Kill You 3000 Times More.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kill You 3000 Times More.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B21F1E371D3BCF9600B7A5C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B21F1E391D3BCF9600B7A5C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B21F1E3B1D3BCF9600B7A5C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,6 +54,18 @@
 		B21F1E451D3BCF9600B7A5C8 /* ZYNM3000Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZYNM3000Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B21F1E491D3BCF9600B7A5C8 /* ZYNM3000Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZYNM3000Tests.swift; sourceTree = "<group>"; };
 		B21F1E4B1D3BCF9600B7A5C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B21F1E541D3BD06E00B7A5C8 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = ../Resources; sourceTree = "<group>"; };
+		B21F1E5A1D3BD11400B7A5C8 /* Words3000.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Words3000.swift; path = Classes/Words3000.swift; sourceTree = "<group>"; };
+		B21F1E5E1D3BD70B00B7A5C8 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Word.swift; path = Classes/Word.swift; sourceTree = "<group>"; };
+		B21F1E611D3BD82100B7A5C8 /* TestMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestMethod.swift; path = Classes/TestMethod.swift; sourceTree = "<group>"; };
+		B27F192C1D3BE3C90034DBFD /* HierarchyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HierarchyViewController.swift; path = ViewControllers/HierarchyViewController.swift; sourceTree = "<group>"; };
+		B27F192F1D3BF6C50034DBFD /* OutlineButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutlineButtonView.swift; path = Views/OutlineButtonView.swift; sourceTree = "<group>"; };
+		B27F19321D3C00FE0034DBFD /* NoExtraGridOutlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoExtraGridOutlineView.swift; path = Views/NoExtraGridOutlineView.swift; sourceTree = "<group>"; };
+		B27F19341D3C10290034DBFD /* WordDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordDetailViewController.swift; path = ViewControllers/WordDetailViewController.swift; sourceTree = "<group>"; };
+		B27F19361D3C2DF30034DBFD /* ListenKeyWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenKeyWindowController.swift; sourceTree = "<group>"; };
+		B27F19381D3C38840034DBFD /* SpeakerImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeakerImageButton.swift; path = Views/SpeakerImageButton.swift; sourceTree = "<group>"; };
+		EC6F58107A8CADB031010603 /* Pods_ZYNM3000Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZYNM3000Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7B085C2EA6783A7EEA7E1CA /* Pods-ZYNM3000.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYNM3000.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZYNM3000/Pods-ZYNM3000.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9886AE6386884528C22334C /* Pods_ZYNM3000.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,25 +81,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95324348F39ACF732EF44AA8 /* Pods_ZYNM3000Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12F6E38E6941A46F14BF0AE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C79D18B34844E8D57550926 /* Pods_ZYNM3000.framework */,
+				EC6F58107A8CADB031010603 /* Pods_ZYNM3000Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		867FFA531A75097A6495F05D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F7B085C2EA6783A7EEA7E1CA /* Pods-ZYNM3000.debug.xcconfig */,
+				A6988790DF3EC4EE0F8CED41 /* Pods-ZYNM3000.release.xcconfig */,
+				6C1FCBEF1375CBD00C2E88E4 /* Pods-ZYNM3000Tests.debug.xcconfig */,
+				8B217A105EB87FFE7120B08F /* Pods-ZYNM3000Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B21F1E2B1D3BCF9600B7A5C8 = {
 			isa = PBXGroup;
 			children = (
 				B21F1E361D3BCF9600B7A5C8 /* ZYNM3000 */,
 				B21F1E481D3BCF9600B7A5C8 /* ZYNM3000Tests */,
 				B21F1E351D3BCF9600B7A5C8 /* Products */,
+				867FFA531A75097A6495F05D /* Pods */,
+				12F6E38E6941A46F14BF0AE5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		B21F1E351D3BCF9600B7A5C8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B21F1E341D3BCF9600B7A5C8 /* ZYNM3000.app */,
+				B21F1E341D3BCF9600B7A5C8 /* Kill You 3000 Times More.app */,
 				B21F1E451D3BCF9600B7A5C8 /* ZYNM3000Tests.xctest */,
 			);
 			name = Products;
@@ -76,10 +132,14 @@
 			isa = PBXGroup;
 			children = (
 				B21F1E371D3BCF9600B7A5C8 /* AppDelegate.swift */,
-				B21F1E391D3BCF9600B7A5C8 /* ViewController.swift */,
+				B27F19361D3C2DF30034DBFD /* ListenKeyWindowController.swift */,
+				B21F1E5D1D3BD11C00B7A5C8 /* Classes */,
+				B27F192E1D3BE3CD0034DBFD /* ViewControllers */,
+				B27F19311D3BF6C80034DBFD /* Views */,
 				B21F1E3B1D3BCF9600B7A5C8 /* Assets.xcassets */,
 				B21F1E3D1D3BCF9600B7A5C8 /* Main.storyboard */,
 				B21F1E401D3BCF9600B7A5C8 /* Info.plist */,
+				B21F1E541D3BD06E00B7A5C8 /* Resources */,
 			);
 			path = ZYNM3000;
 			sourceTree = "<group>";
@@ -93,6 +153,36 @@
 			path = ZYNM3000Tests;
 			sourceTree = "<group>";
 		};
+		B21F1E5D1D3BD11C00B7A5C8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B21F1E5A1D3BD11400B7A5C8 /* Words3000.swift */,
+				B21F1E5E1D3BD70B00B7A5C8 /* Word.swift */,
+				B21F1E611D3BD82100B7A5C8 /* TestMethod.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		B27F192E1D3BE3CD0034DBFD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B21F1E391D3BCF9600B7A5C8 /* ViewController.swift */,
+				B27F192C1D3BE3C90034DBFD /* HierarchyViewController.swift */,
+				B27F19341D3C10290034DBFD /* WordDetailViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B27F19311D3BF6C80034DBFD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B27F19321D3C00FE0034DBFD /* NoExtraGridOutlineView.swift */,
+				B27F192F1D3BF6C50034DBFD /* OutlineButtonView.swift */,
+				B27F19381D3C38840034DBFD /* SpeakerImageButton.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -100,9 +190,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B21F1E4E1D3BCF9600B7A5C8 /* Build configuration list for PBXNativeTarget "ZYNM3000" */;
 			buildPhases = (
+				FEBFB3C6C4844DE21550803E /* [CP] Check Pods Manifest.lock */,
 				B21F1E301D3BCF9600B7A5C8 /* Sources */,
 				B21F1E311D3BCF9600B7A5C8 /* Frameworks */,
 				B21F1E321D3BCF9600B7A5C8 /* Resources */,
+				47308C7DCA9548668C4F36B1 /* [CP] Embed Pods Frameworks */,
+				60571AEB0B215EC94D626422 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -110,16 +203,19 @@
 			);
 			name = ZYNM3000;
 			productName = ZYNM3000;
-			productReference = B21F1E341D3BCF9600B7A5C8 /* ZYNM3000.app */;
+			productReference = B21F1E341D3BCF9600B7A5C8 /* Kill You 3000 Times More.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B21F1E441D3BCF9600B7A5C8 /* ZYNM3000Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B21F1E511D3BCF9600B7A5C8 /* Build configuration list for PBXNativeTarget "ZYNM3000Tests" */;
 			buildPhases = (
+				DADF86EA388969C2AA9FD3E9 /* [CP] Check Pods Manifest.lock */,
 				B21F1E411D3BCF9600B7A5C8 /* Sources */,
 				B21F1E421D3BCF9600B7A5C8 /* Frameworks */,
 				B21F1E431D3BCF9600B7A5C8 /* Resources */,
+				41D313BBED3E58B5C995C7D5 /* [CP] Embed Pods Frameworks */,
+				083FD88C8E98181CEE66E891 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -137,6 +233,7 @@
 		B21F1E2C1D3BCF9600B7A5C8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = XH;
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = XH;
@@ -157,7 +254,7 @@
 				};
 			};
 			buildConfigurationList = B21F1E2F1D3BCF9600B7A5C8 /* Build configuration list for PBXProject "ZYNM3000" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -182,6 +279,7 @@
 			files = (
 				B21F1E3C1D3BCF9600B7A5C8 /* Assets.xcassets in Resources */,
 				B21F1E3F1D3BCF9600B7A5C8 /* Main.storyboard in Resources */,
+				B21F1E551D3BD06E00B7A5C8 /* Resources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,17 +287,120 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B21F1E561D3BD06E00B7A5C8 /* Resources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		083FD88C8E98181CEE66E891 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZYNM3000Tests/Pods-ZYNM3000Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41D313BBED3E58B5C995C7D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZYNM3000Tests/Pods-ZYNM3000Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		47308C7DCA9548668C4F36B1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZYNM3000/Pods-ZYNM3000-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60571AEB0B215EC94D626422 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZYNM3000/Pods-ZYNM3000-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DADF86EA388969C2AA9FD3E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FEBFB3C6C4844DE21550803E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B21F1E301D3BCF9600B7A5C8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B27F192D1D3BE3C90034DBFD /* HierarchyViewController.swift in Sources */,
+				B27F19331D3C00FE0034DBFD /* NoExtraGridOutlineView.swift in Sources */,
 				B21F1E3A1D3BCF9600B7A5C8 /* ViewController.swift in Sources */,
+				B27F19391D3C38840034DBFD /* SpeakerImageButton.swift in Sources */,
+				B21F1E5F1D3BD70B00B7A5C8 /* Word.swift in Sources */,
+				B27F19371D3C2DF30034DBFD /* ListenKeyWindowController.swift in Sources */,
+				B21F1E621D3BD82100B7A5C8 /* TestMethod.swift in Sources */,
+				B27F19351D3C10290034DBFD /* WordDetailViewController.swift in Sources */,
+				B21F1E5B1D3BD11400B7A5C8 /* Words3000.swift in Sources */,
+				B27F19301D3BF6C50034DBFD /* OutlineButtonView.swift in Sources */,
 				B21F1E381D3BCF9600B7A5C8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,7 +409,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B21F1E631D3BD82100B7A5C8 /* TestMethod.swift in Sources */,
+				B21F1E5C1D3BD11400B7A5C8 /* Words3000.swift in Sources */,
 				B21F1E4A1D3BCF9600B7A5C8 /* ZYNM3000Tests.swift in Sources */,
+				B21F1E601D3BD70B00B7A5C8 /* Word.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,32 +526,37 @@
 		};
 		B21F1E4F1D3BCF9600B7A5C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7B085C2EA6783A7EEA7E1CA /* Pods-ZYNM3000.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ZYNM3000/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = me.xinhong.ZYNM3000;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Kill You 3000 Times More";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		B21F1E501D3BCF9600B7A5C8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6988790DF3EC4EE0F8CED41 /* Pods-ZYNM3000.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ZYNM3000/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = me.xinhong.ZYNM3000;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Kill You 3000 Times More";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		B21F1E521D3BCF9600B7A5C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C1FCBEF1375CBD00C2E88E4 /* Pods-ZYNM3000Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -362,6 +571,7 @@
 		};
 		B21F1E531D3BCF9600B7A5C8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B217A105EB87FFE7120B08F /* Pods-ZYNM3000Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -393,6 +603,7 @@
 				B21F1E501D3BCF9600B7A5C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B21F1E511D3BCF9600B7A5C8 /* Build configuration list for PBXNativeTarget "ZYNM3000Tests" */ = {
 			isa = XCConfigurationList;
@@ -401,6 +612,7 @@
 				B21F1E531D3BCF9600B7A5C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

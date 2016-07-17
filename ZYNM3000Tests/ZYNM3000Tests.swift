@@ -11,6 +11,8 @@ import XCTest
 
 class ZYNM3000Tests: XCTestCase {
     
+    var words3000 = Words3000()
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -22,8 +24,16 @@ class ZYNM3000Tests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let lists = words3000.lists()
+        XCTAssert(lists.count == 31)
+        for list in lists {
+            XCTAssert(words3000.units(list: list).count >= 8)
+        }
+    }
+    
+    func testWordsParsing() {
+        let words = words3000.words(list: 1, unit: 1)
+        XCTAssert(words.count == 10)
     }
     
     func testPerformanceExample() {
