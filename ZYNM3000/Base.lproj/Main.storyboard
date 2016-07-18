@@ -853,12 +853,12 @@
                                         </constraints>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Icon" id="xj7-kY-R9a"/>
                                     </imageView>
-                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="6kH-8t-qm9">
-                                        <rect key="frame" x="8" y="0.0" width="452" height="34"/>
+                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6kH-8t-qm9">
+                                        <rect key="frame" x="21" y="0.0" width="425" height="34"/>
                                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" allowsEditingTextAttributes="YES" id="Nc0-mh-tor">
                                             <font key="font" metaFont="system"/>
-                                            <string key="title">Press "W" "A" ","(comma) "⬅︎" or "⬆︎" key to navigate backward
-Press "S" "D" "."(period) "➡︎" "⬇︎" Space or Return key to navigate forward</string>
+                                            <string key="title">Press "W" "A" ","(comma) or "⬅︎" key to navigate backward
+Press "S" "D" "."(period) "➡︎" Space or Return key to navigate forward</string>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>

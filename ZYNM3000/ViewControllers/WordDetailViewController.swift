@@ -82,6 +82,9 @@ class WordDetailViewController: NSViewController {
     }
     
     func displayWord(word: Word) {
+        if self.word != nil && word == self.word {
+            return
+        }
         self.word = word
         reloadData()
         playSound()

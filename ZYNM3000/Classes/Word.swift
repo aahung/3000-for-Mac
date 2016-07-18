@@ -9,7 +9,7 @@
 import Foundation
 import FMDB
 
-class Word {
+class Word: Equatable {
     var id: Int
     var spelling: String
     var testMethods: [TestMethod]
@@ -50,4 +50,8 @@ class Word {
         let sound = NSSound(contentsOfFile: audioPath!, byReference: true)
         sound?.play()
     }
+}
+
+func ==(lhs: Word, rhs: Word) -> Bool {
+    return lhs.list == rhs.list && lhs.unit == rhs.unit && lhs.orderInUnit == rhs.orderInUnit
 }

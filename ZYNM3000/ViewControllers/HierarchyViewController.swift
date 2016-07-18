@@ -119,7 +119,9 @@ class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutl
             let cell = outlineView.make(withIdentifier: "outline-button-cell", owner: self) as? OutlineButtonView
             
             var id = 0
+            cell?.goButton.isHidden = false
             if item is Word {
+                cell?.goButton.isHidden = true
                 id = (item as! Word).list * 10000 + (item as! Word).unit * 100 + (item as! Word).orderInUnit
             } else if item is Unit {
                 id = (item as! Unit).list!.id * 10000 + (item as! Unit).id * 100
@@ -135,6 +137,15 @@ class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutl
         }
         
         return nil
+    }
+    
+    func outlineViewSelectionDidChange(_ notification: Notification) {
+        let outlineView = notification.object as! NSOutlineView
+        let item = outlineView.item(atRow: outlineView.selectedRow)
+        if let word = item as? Word {
+            print("outlineViewSelectionDidChange: \([word.list, word.unit, word.orderInUnit])")
+            NotificationCenter.default.post(Notification(name: "select-word-in-hierarchy" as Notification.Name, object: nil, userInfo: ["word": word]))
+        }
     }
     
     func goButtonClicked(sender: NSButton) {
@@ -165,6 +176,7 @@ class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutl
         let theList = self.lists[list - 1]
         let theUnit = theList.units[unit - 1]
         let theWord = theUnit.words[orderInUnit - 1]
+        print("wordDisplayed: \([list, unit, orderInUnit])")
         OperationQueue.main.addOperation {
             self.outlineView.collapseItem(nil, collapseChildren: true)
             self.outlineView.expandItem(theList)
@@ -177,6 +189,10 @@ class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutl
     }
     
     func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: AnyObject) -> Bool {
-        return item is Word
+        if item is Word {
+            return true
+        } else {
+            return false
+        }
     }
 }
