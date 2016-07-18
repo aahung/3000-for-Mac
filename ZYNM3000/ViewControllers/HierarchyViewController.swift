@@ -165,7 +165,8 @@ class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutl
         let theList = self.lists[list - 1]
         let theUnit = theList.units[unit - 1]
         let theWord = theUnit.words[orderInUnit - 1]
-        OperationQueue.main.addOperation { 
+        OperationQueue.main.addOperation {
+            self.outlineView.collapseItem(nil, collapseChildren: true)
             self.outlineView.expandItem(theList)
             self.outlineView.expandItem(theUnit)
             self.outlineView.expandItem(theWord)

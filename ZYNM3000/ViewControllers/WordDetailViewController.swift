@@ -36,6 +36,14 @@ class WordDetailViewController: NSViewController {
     
     @IBOutlet weak var chineseMeaningScrollView: NSScrollView!
     
+    @IBOutlet weak var testMethodsScrollView: NSScrollView!
+    
+    var testMethodTextView: NSTextView {
+        get {
+            return testMethodsScrollView.contentView.documentView as! NSTextView
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -93,21 +101,42 @@ class WordDetailViewController: NSViewController {
         self.view.alphaValue = 1.0
         
         spellingLabel.stringValue = word.spelling
-        phoneticLabel.attributedStringValue = parseHTMLString(html: word.phonetic, font: NSFont(name: "Palatino-Roman", size: 14.0)!)
-        englishMeaningTextView.textStorage?.setAttributedString(parseHTMLString(html: word.englishMeaning.replacingOccurrences(of: "|", with: "<br />"), font: NSFont(name: "Palatino-Roman", size: 22.0)!))
-        chineseMeaningTextView.textStorage?.setAttributedString(parseHTMLString(html: word.chineseMeaning.replacingOccurrences(of: "|", with: "<br />"), font: NSFont(name: "Heiti SC", size: 22.0)!))
+        phoneticLabel.attributedStringValue = parseHTMLString(html: word.phonetic, font: NSFont(name: "Palatino-Roman", size: 14.0)!, alignment: NSTextAlignment.center)
+        englishMeaningTextView.textStorage?.setAttributedString(parseHTMLString(html: word.englishMeaning.replacingOccurrences(of: "|", with: "<br />"), font: NSFont(name: "Palatino-Roman", size: 22.0)!, alignment: NSTextAlignment.center))
+        chineseMeaningTextView.textStorage?.setAttributedString(parseHTMLString(html: word.chineseMeaning.replacingOccurrences(of: "|", with: "<br />"), font: NSFont(name: "Heiti SC", size: 22.0)!, alignment: NSTextAlignment.center))
         adjustTextViewScrollViewHeight(scrollView: englishMeaningScrollView, heightConstraint: englishMeaningScrollViewHeightConstraint)
         adjustTextViewScrollViewHeight(scrollView: chineseMeaningScrollView, heightConstraint: chineseMeaningScrollViewHeightConstraint)
+        
+        // generate test method HTML
+        var html = ""
+        for testMethod in word.testMethods {
+            if testMethod.title != word.testMethods.first?.title {
+                html.append("<br />")
+            }
+            html.append("<u>\(testMethod.title):</u> \(testMethod.content)")
+            html.append("<br />")
+            if let exampleSentence = testMethod.exampleSentence {
+                html.append("<u>例句: </u>\(exampleSentence)<br />")
+            }
+            if let synonym = testMethod.synonym {
+                html.append("<u>近义: </u>\(synonym)<br />")
+            }
+            if let antonym = testMethod.antonym {
+                html.append("<u>反义: </u>\(antonym)<br />")
+            }
+        }
+        testMethodTextView.textStorage?.setAttributedString(parseHTMLString(html: html, font: NSFont(name: "Arial", size: 16.0)!, alignment: NSTextAlignment.left))
+        testMethodTextView.alphaValue = 0.7
     }
     
-    private func parseHTMLString(html: String, font: NSFont) -> AttributedString {
+    private func parseHTMLString(html: String, font: NSFont, alignment: NSTextAlignment) -> AttributedString {
         let data = html.data(using: String.Encoding.unicode)
         let attributedString = NSMutableAttributedString(html: data!, baseURL: URL(string: "https://xinhong.me")!, documentAttributes: nil)
         
         // make font bigger and center alignment
         attributedString?.addAttribute(NSFontAttributeName, value: font, range: NSMakeRange(0, attributedString!.length))
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = NSTextAlignment.center
+        paragraphStyle.alignment = alignment
         attributedString?.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, attributedString!.length))
         
         return attributedString!
