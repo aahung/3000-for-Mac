@@ -33,7 +33,7 @@ class ViewController: NSSplitViewController {
     override func viewDidAppear() {
         super.viewDidAppear()
         
-        self.view.window?.title = "再要你命 3000 － 不满之前没有 Mac 版 - Version \(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)"
+        self.view.window?.title = "再要你命 3000 - Version \(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)"
         self.view.window?.makeKey()
     }
 
