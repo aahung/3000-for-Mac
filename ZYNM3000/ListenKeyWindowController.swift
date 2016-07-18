@@ -15,13 +15,17 @@ class ListenKeyWindowController: NSWindowController {
     
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     }
+    
+    override func keyDown(_ event: NSEvent) {
+        
+    }
 
     override func keyUp(_ event: NSEvent) {
         let keycode = Int(event.keyCode)
         switch keycode {
-        case 123, 0: // left or a
+        case 123, 126, 0, 13, 43: // left or up or a or w or ,
             NotificationCenter.default.post(name: "left-arrow-key-pressed" as NSNotification.Name, object: nil)
-        case 124, 2: // right or d
+        case 124, 125, 2, 1, 49, 36, 47: // right or down or d or s or space or enter or .
             NotificationCenter.default.post(name: "right-arrow-key-pressed" as NSNotification.Name, object: nil)
         default:
             break
