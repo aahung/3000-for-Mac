@@ -832,7 +832,7 @@
                 </viewController>
                 <customObject id="zam-se-bkq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="354" y="720"/>
+            <point key="canvasLocation" x="363" y="833"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="eVP-BB-dbl">
@@ -1019,10 +1019,10 @@ Press "S" "D" "."(period) "➡︎" "⬇︎" Space or Return key to navigate forw
                                                     <rect key="frame" x="0.0" y="0.0" width="471" height="77"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <size key="minSize" width="471" height="77"/>
+                                                    <size key="minSize" width="456" height="77"/>
                                                     <size key="maxSize" width="499" height="10000000"/>
                                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <size key="minSize" width="471" height="77"/>
+                                                    <size key="minSize" width="456" height="77"/>
                                                     <size key="maxSize" width="499" height="10000000"/>
                                                 </textView>
                                             </subviews>
@@ -1036,7 +1036,7 @@ Press "S" "D" "."(period) "➡︎" "⬇︎" Space or Return key to navigate forw
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="vrE-96-aIg">
-                                            <rect key="frame" x="455" y="0.0" width="16" height="77"/>
+                                            <rect key="frame" x="456" y="0.0" width="15" height="77"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>

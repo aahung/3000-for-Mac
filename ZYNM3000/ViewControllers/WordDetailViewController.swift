@@ -59,12 +59,13 @@ class WordDetailViewController: NSViewController {
         super.viewDidAppear()
         NotificationCenter.default.addObserver(self, selector: #selector(showLastWord), name: "left-arrow-key-pressed" as NSNotification.Name, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showNextWord), name: "right-arrow-key-pressed" as NSNotification.Name, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(selectWordInHierarchy), name: "select-word-in-hierarchy" as NSNotification.Name, object: nil)
         
         if appLaunching {
             appLaunching = false
             // load last record
             if let lastTimeWord = UserDefaults.standard.array(forKey: "last-time-word") as? [Int] {
-                if let word = containerViewController.words3000.word(list: lastTimeWord[0], unit: lastTimeWord[1], orderInUnit: lastTimeWord[2]) {
+                if let word = Words3000.shared.word(list: lastTimeWord[0], unit: lastTimeWord[1], orderInUnit: lastTimeWord[2]) {
                     displayWord(word: word)
                 }
             }
@@ -74,6 +75,7 @@ class WordDetailViewController: NSViewController {
     override func viewDidDisappear() {
         NotificationCenter.default.removeObserver(self, name: "left-arrow-key-pressed" as NSNotification.Name, object: nil)
         NotificationCenter.default.removeObserver(self, name: "right-arrow-key-pressed" as NSNotification.Name, object: nil)
+        NotificationCenter.default.removeObserver(self, name: "select-word-in-hierarchy" as NSNotification.Name, object: nil)
         // save progress
         UserDefaults.standard.set([word.list, word.unit, word.orderInUnit], forKey: "last-time-word")
         super.viewDidDisappear()
@@ -170,7 +172,7 @@ class WordDetailViewController: NSViewController {
                 }
             }
         }
-        if let word = containerViewController.words3000.word(list: list, unit: unit, orderInUnit: orderInUnit) {
+        if let word = Words3000.shared.word(list: list, unit: unit, orderInUnit: orderInUnit) {
             return word
         }
         return word
@@ -182,5 +184,12 @@ class WordDetailViewController: NSViewController {
     
     func showNextWord() {
         displayWord(word: incrementWord(word: word, positive: true))
+    }
+    
+    func selectWordInHierarchy(notification: Notification) {
+        let word = notification.userInfo!["word"] as! Word
+        OperationQueue.main.addOperation { 
+            self.displayWord(word: word)
+        }
     }
 }

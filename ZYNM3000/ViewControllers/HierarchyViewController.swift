@@ -57,11 +57,11 @@ class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutl
     }
     
     func initWords() {
-        for listId in containerViewController.words3000.lists() {
-            let list = List(id: listId, unitIds: containerViewController.words3000.units(list: listId))
+        for listId in Words3000.shared.lists() {
+            let list = List(id: listId, unitIds: Words3000.shared.units(list: listId))
             lists.append(list)
             for unit in list.units {
-                unit.words = containerViewController.words3000.words(list: listId, unit: unit.id)
+                unit.words = Words3000.shared.words(list: listId, unit: unit.id)
             }
         }
     }
@@ -148,8 +148,8 @@ class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutl
         if orderInUnit == 0 {
             orderInUnit = 1
         }
-        if let word = containerViewController.words3000.word(list: list, unit: unit, orderInUnit: orderInUnit) {
-            containerViewController.wordDetailViewController.displayWord(word: word)
+        if let word = Words3000.shared.word(list: list, unit: unit, orderInUnit: orderInUnit) {
+            NotificationCenter.default.post(Notification(name: "select-word-in-hierarchy" as Notification.Name, object: nil, userInfo: ["word": word]))
         }
     }
     

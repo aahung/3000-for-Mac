@@ -12,6 +12,10 @@ import FMDB
 class Words3000 {
     var db: FMDatabase!
     
+    static let shared: Words3000 = {
+        return Words3000()
+    }()
+    
     init() {
         let dbFilePath = Bundle.main.pathForResource("Resources/GREWord.sqlite", ofType: nil)
         db = FMDatabase(path: dbFilePath)
@@ -51,6 +55,19 @@ class Words3000 {
         
         let sql = "SELECT * FROM wordlist WHERE list = ? AND unit = ? ORDER BY `order`"
         let result = db.executeQuery(sql, withArgumentsIn: [list, unit])
+        while result?.next() == true {
+            let word = parseWord(result: result!)
+            words.append(word)
+        }
+        
+        return words
+    }
+    
+    func words(like: String) -> [Word] {
+        var words = [Word]()
+        
+        let sql = "SELECT * FROM wordlist WHERE content LIKE ? ORDER BY `order`"
+        let result = db.executeQuery(sql, withArgumentsIn: ["%\(like.lowercased())%"])
         while result?.next() == true {
             let word = parseWord(result: result!)
             words.append(word)
