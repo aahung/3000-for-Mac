@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B21F1E331D3BCF9600B7A5C8"
-               BuildableName = "ZYNM3000.app"
+               BuildableName = "Kill You 3000 Times More.app"
                BlueprintName = "ZYNM3000"
                ReferencedContainer = "container:ZYNM3000.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B21F1E331D3BCF9600B7A5C8"
-            BuildableName = "ZYNM3000.app"
+            BuildableName = "Kill You 3000 Times More.app"
             BlueprintName = "ZYNM3000"
             ReferencedContainer = "container:ZYNM3000.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B21F1E331D3BCF9600B7A5C8"
-            BuildableName = "ZYNM3000.app"
+            BuildableName = "Kill You 3000 Times More.app"
             BlueprintName = "ZYNM3000"
             ReferencedContainer = "container:ZYNM3000.xcodeproj">
          </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B21F1E331D3BCF9600B7A5C8"
-            BuildableName = "ZYNM3000.app"
+            BuildableName = "Kill You 3000 Times More.app"
             BlueprintName = "ZYNM3000"
             ReferencedContainer = "container:ZYNM3000.xcodeproj">
          </BuildableReference>

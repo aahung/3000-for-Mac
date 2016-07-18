@@ -674,7 +674,7 @@
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <rect key="contentRect" x="492" y="314" width="1000" height="700"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="700" height="400"/>
+                        <value key="minSize" type="size" width="1000" height="600"/>
                     </window>
                     <connections>
                         <segue destination="aDj-vm-RAu" kind="relationship" relationship="window.shadowedContentViewController" id="A0o-UW-uBY"/>

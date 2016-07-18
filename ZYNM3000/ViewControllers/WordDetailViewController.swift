@@ -39,23 +39,28 @@ class WordDetailViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.isHidden = true
+        self.view.alphaValue = 0.0
         
         self.speakerImageButton.action = #selector(playSound)
         self.speakerImageButton.target = self
-        
-        // load last record
-        if let lastTimeWord = UserDefaults.standard.array(forKey: "last-time-word") as? [Int] {
-            if let word = containerViewController.words3000.word(list: lastTimeWord[0], unit: lastTimeWord[1], orderInUnit: lastTimeWord[2]) {
-                displayWord(word: word)
-            }
-        }
     }
+    
+    var appLaunching = true
     
     override func viewDidAppear() {
         super.viewDidAppear()
         NotificationCenter.default.addObserver(self, selector: #selector(showLastWord), name: "left-arrow-key-pressed" as NSNotification.Name, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showNextWord), name: "right-arrow-key-pressed" as NSNotification.Name, object: nil)
+        
+        if appLaunching {
+            appLaunching = false
+            // load last record
+            if let lastTimeWord = UserDefaults.standard.array(forKey: "last-time-word") as? [Int] {
+                if let word = containerViewController.words3000.word(list: lastTimeWord[0], unit: lastTimeWord[1], orderInUnit: lastTimeWord[2]) {
+                    displayWord(word: word)
+                }
+            }
+        }
     }
     
     override func viewDidDisappear() {
@@ -85,12 +90,12 @@ class WordDetailViewController: NSViewController {
     }
     
     func reloadData() {
-        self.view.isHidden = false
+        self.view.alphaValue = 1.0
         
         spellingLabel.stringValue = word.spelling
         phoneticLabel.attributedStringValue = parseHTMLString(html: word.phonetic, font: NSFont(name: "Palatino-Roman", size: 14.0)!)
-        englishMeaningTextView.textStorage?.setAttributedString(parseHTMLString(html: word.englishMeaning.replacingOccurrences(of: "|", with: "<br />"), font: NSFont(name: "Palatino-Roman", size: 16.0)!))
-        chineseMeaningTextView.textStorage?.setAttributedString(parseHTMLString(html: word.chineseMeaning.replacingOccurrences(of: "|", with: "<br />"), font: NSFont(name: "Heiti SC", size: 16.0)!))
+        englishMeaningTextView.textStorage?.setAttributedString(parseHTMLString(html: word.englishMeaning.replacingOccurrences(of: "|", with: "<br />"), font: NSFont(name: "Palatino-Roman", size: 22.0)!))
+        chineseMeaningTextView.textStorage?.setAttributedString(parseHTMLString(html: word.chineseMeaning.replacingOccurrences(of: "|", with: "<br />"), font: NSFont(name: "Heiti SC", size: 22.0)!))
         adjustTextViewScrollViewHeight(scrollView: englishMeaningScrollView, heightConstraint: englishMeaningScrollViewHeightConstraint)
         adjustTextViewScrollViewHeight(scrollView: chineseMeaningScrollView, heightConstraint: chineseMeaningScrollViewHeightConstraint)
     }
