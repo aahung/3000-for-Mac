@@ -532,7 +532,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ZYNM3000/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = me.xinhong.ZYNM3000;
 				PRODUCT_NAME = "Kill You 3000 Times More";
 				SWIFT_VERSION = 3.0;
@@ -547,7 +547,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ZYNM3000/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = me.xinhong.ZYNM3000;
 				PRODUCT_NAME = "Kill You 3000 Times More";
 				SWIFT_VERSION = 3.0;
