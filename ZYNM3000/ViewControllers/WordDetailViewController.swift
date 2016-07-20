@@ -51,6 +51,19 @@ class WordDetailViewController: NSViewController {
         
         self.speakerImageButton.action = #selector(playSound)
         self.speakerImageButton.target = self
+        
+        NSEvent.addLocalMonitorForEvents(matching: NSKeyDownMask) { (event) -> NSEvent? in
+            if event.modifierFlags.contains(NSCommandKeyMask) {
+                switch event.keyCode {
+                case 3:
+                    self.performSegue(withIdentifier: "search-box", sender: self)
+                default:
+                    break
+                }
+            }
+            
+            return event
+        }
     }
     
     var appLaunching = true
@@ -65,9 +78,13 @@ class WordDetailViewController: NSViewController {
             appLaunching = false
             // load last record
             if let lastTimeWord = UserDefaults.standard.array(forKey: "last-time-word") as? [Int] {
-                if let word = Words3000.shared.word(list: lastTimeWord[0], unit: lastTimeWord[1], orderInUnit: lastTimeWord[2]) {
-                    displayWord(word: word)
-                }
+                Words3000.shared.word(list: lastTimeWord[0], unit: lastTimeWord[1], orderInUnit: lastTimeWord[2], callback: { (word) in
+                    if let word = word {
+                        OperationQueue.main.addOperation {
+                            self.displayWord(word: word)
+                        }
+                    }
+                })
             }
         }
     }
@@ -89,6 +106,7 @@ class WordDetailViewController: NSViewController {
         reloadData()
         playSound()
         NotificationCenter.default.post(name: "word-displayed" as NSNotification.Name, object: nil, userInfo: ["list": word.list, "unit": word.unit, "orderInUnit": word.orderInUnit])
+        print("wordDisplayed: \([word.list, word.unit, word.orderInUnit])")
     }
     
     func playSound() {
@@ -147,7 +165,7 @@ class WordDetailViewController: NSViewController {
         return attributedString!
     }
     
-    func incrementWord(word: Word, positive: Bool) -> Word {
+    func incrementWord(word: Word, positive: Bool) -> (list: Int, unit: Int, orderInUnit: Int)? {
         var list = word.list
         var unit = word.unit
         var orderInUnit = word.orderInUnit
@@ -170,23 +188,36 @@ class WordDetailViewController: NSViewController {
                     unit = 10
                     list -= 1
                     if list < 1 {
-                        return word
+                        return nil
                     }
                 }
             }
         }
-        if let word = Words3000.shared.word(list: list, unit: unit, orderInUnit: orderInUnit) {
-            return word
-        }
-        return word
+        return (list, unit, orderInUnit)
     }
     
     func showLastWord() {
-        displayWord(word: incrementWord(word: word, positive: false))
+        if let (list, unit, orderInUnit) = self.incrementWord(word: self.word, positive: false) {
+            Words3000.shared.word(list: list, unit: unit, orderInUnit: orderInUnit) { (word) in
+                if let word = word {
+                    OperationQueue.main.addOperation {
+                        self.displayWord(word: word)
+                    }
+                }
+            }
+        }
     }
     
     func showNextWord() {
-        displayWord(word: incrementWord(word: word, positive: true))
+        if let (list, unit, orderInUnit) = self.incrementWord(word: self.word, positive: true) {
+            Words3000.shared.word(list: list, unit: unit, orderInUnit: orderInUnit) { (word) in
+                if let word = word {
+                    OperationQueue.main.addOperation {
+                        self.displayWord(word: word)
+                    }
+                }
+            }
+        }
     }
     
     func selectWordInHierarchy(notification: Notification) {

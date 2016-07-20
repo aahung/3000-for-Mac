@@ -10,7 +10,7 @@ import Foundation
 import FMDB
 
 class Words3000 {
-    var db: FMDatabase!
+    var queue: FMDatabaseQueue!
     
     static let shared: Words3000 = {
         return Words3000()
@@ -18,74 +18,97 @@ class Words3000 {
     
     init() {
         let dbFilePath = Bundle.main.pathForResource("Resources/GREWord.sqlite", ofType: nil)
-        db = FMDatabase(path: dbFilePath)
-        if !db.open() {
-            print("DB is not open: \(db.lastErrorMessage()!)")
+        queue = FMDatabaseQueue(path: dbFilePath)
+    }
+    
+    func lists(callback: (([Int])->())) {
+        queue.inDatabase { (db) in
+            guard let db = db else {
+                return
+            }
+            var lists = [Int]()
+            
+            let sql = "SELECT DISTINCT(list) FROM wordlist ORDER BY list"
+            let result = db.executeQuery(sql, withParameterDictionary: [NSObject: AnyObject]())
+            while result?.next() == true {
+                let list = Int((result?.int(forColumn: "list"))!)
+                lists.append(list)
+            }
+            
+            callback(lists)
         }
     }
     
-    func lists() -> [Int] {
-        var lists = [Int]()
-        
-        let sql = "SELECT DISTINCT(list) FROM wordlist ORDER BY list"
-        let result = db.executeQuery(sql, withParameterDictionary: [NSObject: AnyObject]())
-        while result?.next() == true {
-            let list = Int((result?.int(forColumn: "list"))!)
-            lists.append(list)
+    func units(list: Int, callback: (([Int])->())) {
+        queue.inDatabase { (db) in
+            guard let db = db else {
+                return
+            }
+            var units = [Int]()
+            
+            let sql = "SELECT DISTINCT(unit) FROM wordlist WHERE list = ? ORDER BY unit"
+            let result = db.executeQuery(sql, withArgumentsIn: [list])
+            while result?.next() == true {
+                let unit = Int((result?.int(forColumn: "unit"))!)
+                units.append(unit)
+            }
+            
+            callback(units)
         }
-        
-        return lists
     }
     
-    func units(list: Int) -> [Int] {
-        var units = [Int]()
-        
-        let sql = "SELECT DISTINCT(unit) FROM wordlist WHERE list = ? ORDER BY unit"
-        let result = db.executeQuery(sql, withArgumentsIn: [list])
-        while result?.next() == true {
-            let unit = Int((result?.int(forColumn: "unit"))!)
-            units.append(unit)
+    func words(list: Int, unit: Int, callback: (([Word])->())) {
+        queue.inDatabase { (db) in
+            guard let db = db else {
+                return
+            }
+            var words = [Word]()
+            
+            let sql = "SELECT * FROM wordlist WHERE list = ? AND unit = ? ORDER BY `order`"
+            let result = db.executeQuery(sql, withArgumentsIn: [list, unit])
+            while result?.next() == true {
+                let word = self.parseWord(result: result!)
+                words.append(word)
+            }
+            
+            callback(words)
         }
-        
-        return units
     }
     
-    func words(list: Int, unit: Int) -> [Word] {
-        var words = [Word]()
-        
-        let sql = "SELECT * FROM wordlist WHERE list = ? AND unit = ? ORDER BY `order`"
-        let result = db.executeQuery(sql, withArgumentsIn: [list, unit])
-        while result?.next() == true {
-            let word = parseWord(result: result!)
-            words.append(word)
+    func words(like: String, callback: (([Word])->())) {
+        queue.inDatabase { (db) in
+            guard let db = db else {
+                return
+            }
+            var words = [Word]()
+            
+            let sql = "SELECT * FROM wordlist WHERE content LIKE ? ORDER BY `order`"
+            let result = db.executeQuery(sql, withArgumentsIn: ["%\(like.lowercased())%"])
+            while result?.next() == true {
+                let word = self.parseWord(result: result!)
+                words.append(word)
+            }
+            
+            callback(words)
         }
-        
-        return words
     }
     
-    func words(like: String) -> [Word] {
-        var words = [Word]()
-        
-        let sql = "SELECT * FROM wordlist WHERE content LIKE ? ORDER BY `order`"
-        let result = db.executeQuery(sql, withArgumentsIn: ["%\(like.lowercased())%"])
-        while result?.next() == true {
-            let word = parseWord(result: result!)
-            words.append(word)
+    func word(list: Int, unit: Int, orderInUnit: Int, callback: ((Word?)->())) {
+        queue.inDatabase { (db) in
+            guard let db = db else {
+                return
+            }
+            let sql = "SELECT * FROM wordlist WHERE list = ? AND unit = ? AND `order` = ?"
+            let result = db.executeQuery(sql, withArgumentsIn: [list, unit, orderInUnit])
+            guard result?.next() == true else {
+                callback(nil)
+                return
+            }
+            callback(self.parseWord(result: result!))
         }
-        
-        return words
     }
     
-    func word(list: Int, unit: Int, orderInUnit: Int) -> Word? {
-        let sql = "SELECT * FROM wordlist WHERE list = ? AND unit = ? AND `order` = ?"
-        let result = db.executeQuery(sql, withArgumentsIn: [list, unit, orderInUnit])
-        guard result?.next() == true else {
-            return nil
-        }
-        return parseWord(result: result!)
-    }
-    
-    private func parseWord(result: FMResultSet) -> Word {
+    func parseWord(result: FMResultSet) -> Word {
         let id = Int(result.int(forColumn: "id"))
         let spelling = result.string(forColumn: "content")!
         let content = result.string(forColumn: "complet")!

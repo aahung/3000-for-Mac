@@ -1,6 +1,6 @@
 # 再要你命 3000 for Mac
 
-![Screenshot](https://files.xinhong.me/file/zaiyaoniming3000/Icon_128x128.png)](https://files.xinhong.me/file/zaiyaoniming3000/screenshot.png)
+![Screenshot](https://files.xinhong.me/file/zaiyaoniming3000/screenshot.png)
 
 点击以下图片下载最新版
 

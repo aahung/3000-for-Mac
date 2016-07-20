@@ -27,6 +27,8 @@
 		B27F19351D3C10290034DBFD /* WordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F19341D3C10290034DBFD /* WordDetailViewController.swift */; };
 		B27F19371D3C2DF30034DBFD /* ListenKeyWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F19361D3C2DF30034DBFD /* ListenKeyWindowController.swift */; };
 		B27F19391D3C38840034DBFD /* SpeakerImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F19381D3C38840034DBFD /* SpeakerImageButton.swift */; };
+		B28933D01D3F3767000A75F8 /* XHSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28933CF1D3F3767000A75F8 /* XHSearchViewController.swift */; };
+		B2C6A4DB1D3F53F700BC05B2 /* Words3000+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C6A4DA1D3F53F600BC05B2 /* Words3000+Hierarchy.swift */; };
 		D9886AE6386884528C22334C /* Pods_ZYNM3000.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C79D18B34844E8D57550926 /* Pods_ZYNM3000.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		B27F19341D3C10290034DBFD /* WordDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WordDetailViewController.swift; path = ViewControllers/WordDetailViewController.swift; sourceTree = "<group>"; };
 		B27F19361D3C2DF30034DBFD /* ListenKeyWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenKeyWindowController.swift; sourceTree = "<group>"; };
 		B27F19381D3C38840034DBFD /* SpeakerImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeakerImageButton.swift; path = Views/SpeakerImageButton.swift; sourceTree = "<group>"; };
+		B28933CF1D3F3767000A75F8 /* XHSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XHSearchViewController.swift; path = ViewControllers/XHSearchViewController.swift; sourceTree = "<group>"; };
+		B2C6A4DA1D3F53F600BC05B2 /* Words3000+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Words3000+Hierarchy.swift"; path = "Classes/Words3000+Hierarchy.swift"; sourceTree = "<group>"; };
 		EC6F58107A8CADB031010603 /* Pods_ZYNM3000Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZYNM3000Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B085C2EA6783A7EEA7E1CA /* Pods-ZYNM3000.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZYNM3000.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZYNM3000/Pods-ZYNM3000.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +163,7 @@
 				B21F1E5A1D3BD11400B7A5C8 /* Words3000.swift */,
 				B21F1E5E1D3BD70B00B7A5C8 /* Word.swift */,
 				B21F1E611D3BD82100B7A5C8 /* TestMethod.swift */,
+				B2C6A4DA1D3F53F600BC05B2 /* Words3000+Hierarchy.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				B21F1E391D3BCF9600B7A5C8 /* ViewController.swift */,
 				B27F192C1D3BE3C90034DBFD /* HierarchyViewController.swift */,
 				B27F19341D3C10290034DBFD /* WordDetailViewController.swift */,
+				B28933CF1D3F3767000A75F8 /* XHSearchViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -392,9 +398,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B27F192D1D3BE3C90034DBFD /* HierarchyViewController.swift in Sources */,
+				B2C6A4DB1D3F53F700BC05B2 /* Words3000+Hierarchy.swift in Sources */,
 				B27F19331D3C00FE0034DBFD /* NoExtraGridOutlineView.swift in Sources */,
 				B21F1E3A1D3BCF9600B7A5C8 /* ViewController.swift in Sources */,
 				B27F19391D3C38840034DBFD /* SpeakerImageButton.swift in Sources */,
+				B28933D01D3F3767000A75F8 /* XHSearchViewController.swift in Sources */,
 				B21F1E5F1D3BD70B00B7A5C8 /* Word.swift in Sources */,
 				B27F19371D3C2DF30034DBFD /* ListenKeyWindowController.swift in Sources */,
 				B21F1E621D3BD82100B7A5C8 /* TestMethod.swift in Sources */,

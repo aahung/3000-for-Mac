@@ -10,29 +10,7 @@ import Cocoa
 
 class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate {
     
-    class List {
-        var id: Int
-        var units: [Unit]
-        init(id: Int, unitIds: [Int]) {
-            self.id = id
-            self.units = [Unit]()
-            for unitId in unitIds {
-                units.append(Unit(list: self, id: unitId))
-            }
-        }
-    }
-    
-    class Unit {
-        weak var list: List?
-        var id: Int
-        var words: [Word]!
-        init(list: List, id: Int) {
-            self.list = list
-            self.id = id
-        }
-    }
-    
-    var lists = [List]()
+    var lists = [HierarchyList]()
 
     weak var containerViewController: ViewController!
     
@@ -57,13 +35,12 @@ class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutl
     }
     
     func initWords() {
-        for listId in Words3000.shared.lists() {
-            let list = List(id: listId, unitIds: Words3000.shared.units(list: listId))
-            lists.append(list)
-            for unit in list.units {
-                unit.words = Words3000.shared.words(list: listId, unit: unit.id)
+        Words3000.shared.hierarchyLists(callback: { (lists) in
+            self.lists = lists
+            OperationQueue.main.addOperation {
+                self.outlineView.reloadData()
             }
-        }
+        })
     }
     
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: AnyObject) -> Bool {
@@ -76,10 +53,10 @@ class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutl
         } else {
             if item is Word {
                 return 0
-            } else if item is Unit {
-                return (item as! Unit).words.count
-            } else if item is List {
-                return (item as! List).units.count
+            } else if item is HierarchyUnit {
+                return (item as! HierarchyUnit).words.count
+            } else if item is HierarchyList {
+                return (item as! HierarchyList).units.count
             } else {
                 fatalError()
             }
@@ -90,10 +67,10 @@ class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutl
         if item == nil {
             return lists[index]
         } else {
-            if item is Unit {
-                return (item as! Unit).words[index]
-            } else if item is List {
-                return (item as! List).units[index]
+            if item is HierarchyUnit {
+                return (item as! HierarchyUnit).words[index]
+            } else if item is HierarchyList {
+                return (item as! HierarchyList).units[index]
             } else {
                 fatalError()
             }
@@ -106,10 +83,10 @@ class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutl
             
             if item is Word {
                 cell?.textField?.stringValue = "\((item as! Word).spelling) - \((item as! Word).chineseMeaning)"
-            } else if item is Unit {
-                cell?.textField?.stringValue = "Unit \((item as! Unit).id)"
-            } else if item is List {
-                cell?.textField?.stringValue = "List \((item as! List).id)"
+            } else if item is HierarchyUnit {
+                cell?.textField?.stringValue = "Unit \((item as! HierarchyUnit).id)"
+            } else if item is HierarchyList {
+                cell?.textField?.stringValue = "List \((item as! HierarchyList).id)"
             } else {
                 fatalError()
             }
@@ -123,10 +100,10 @@ class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutl
             if item is Word {
                 cell?.goButton.isHidden = true
                 id = (item as! Word).list * 10000 + (item as! Word).unit * 100 + (item as! Word).orderInUnit
-            } else if item is Unit {
-                id = (item as! Unit).list!.id * 10000 + (item as! Unit).id * 100
-            } else if item is List {
-                id = (item as! List).id * 10000
+            } else if item is HierarchyUnit {
+                id = (item as! HierarchyUnit).list!.id * 10000 + (item as! HierarchyUnit).id * 100
+            } else if item is HierarchyList {
+                id = (item as! HierarchyList).id * 10000
             }
             
             cell?.goButton.tag = id
@@ -159,9 +136,11 @@ class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutl
         if orderInUnit == 0 {
             orderInUnit = 1
         }
-        if let word = Words3000.shared.word(list: list, unit: unit, orderInUnit: orderInUnit) {
-            NotificationCenter.default.post(Notification(name: "select-word-in-hierarchy" as Notification.Name, object: nil, userInfo: ["word": word]))
-        }
+        Words3000.shared.word(list: list, unit: unit, orderInUnit: orderInUnit, callback: { (word) in
+            if let word = word {
+                NotificationCenter.default.post(Notification(name: "select-word-in-hierarchy" as Notification.Name, object: nil, userInfo: ["word": word]))
+            }
+        })
     }
     
     func outlineView(_ outlineView: NSOutlineView, heightOfRowByItem item: AnyObject) -> CGFloat {
@@ -176,7 +155,6 @@ class HierarchyViewController: NSViewController, NSOutlineViewDataSource, NSOutl
         let theList = self.lists[list - 1]
         let theUnit = theList.units[unit - 1]
         let theWord = theUnit.words[orderInUnit - 1]
-        print("wordDisplayed: \([list, unit, orderInUnit])")
         OperationQueue.main.addOperation {
             self.outlineView.collapseItem(nil, collapseChildren: true)
             self.outlineView.expandItem(theList)
